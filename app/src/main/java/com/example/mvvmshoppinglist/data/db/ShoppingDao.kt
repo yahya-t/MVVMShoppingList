@@ -1,4 +1,4 @@
-package com.example.mvvmshoppinglist
+package com.example.mvvmshoppinglist.data.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.mvvmshoppinglist.data.db.entities.ShoppingItem
 
 /** DAO Interface with functions to access the ShoppingDatabase.
  * Suspend functions are used as coroutines is used to access the SQLite database. */

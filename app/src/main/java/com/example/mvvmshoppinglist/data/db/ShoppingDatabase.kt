@@ -1,9 +1,10 @@
-package com.example.mvvmshoppinglist
+package com.example.mvvmshoppinglist.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.mvvmshoppinglist.data.db.entities.ShoppingItem
 
 /** Class representing the database "ShoppingDatabase"  */
 @Database(
@@ -28,7 +29,7 @@ abstract class ShoppingDatabase : RoomDatabase() {
          * Returns the "instance" of the ShoppingDatabase.
          * If it is null, then use a "synchronized block" (to make sure no other threads
          * accesses the ShoppingDatabase instance at the same time) and create
-         * a new instance of ShoppingDatabase*/
+         * a new instance of ShoppingDatabase using another null-check. */
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
             instance ?: createDatabase(context).also { instance = it }
         }
