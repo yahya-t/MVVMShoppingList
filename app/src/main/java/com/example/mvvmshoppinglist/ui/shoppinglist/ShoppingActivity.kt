@@ -13,9 +13,9 @@ class ShoppingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shopping)
 
-        val database = ShoppingDatabase(this)
-        val repository = ShoppingRepository(database)
-        val factory = ShoppingViewModelFactory(repository)
+        val database = ShoppingDatabase(this) //this is used as the Context
+        val repository = ShoppingRepository(database) //ShoppingRepository takes the database as parameter
+        val factory = ShoppingViewModelFactory(repository) //ShoppingViewModelFactory uses the repository
 
         val viewModel = ViewModelProviders.of(this, factory).get(ShoppingViewModel::class.java)
     }
